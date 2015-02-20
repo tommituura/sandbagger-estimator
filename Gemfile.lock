@@ -1,10 +1,12 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    SgfParser (2.0.0)
     rubyzip (1.1.7)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  SgfParser (~> 2.0.0)
   rubyzip

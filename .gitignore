@@ -1,0 +1,4 @@
+# ignore zips and sgf files in this directory, since those 
+# are for testing purposes only and not for version control
+*.zip
+*.sgf

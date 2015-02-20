@@ -1,9 +1,15 @@
-# kgs-sandbagger-estimator
+# sandbagger-estimator
 
-This is a ruby script/program to analyze Go games from 
-[KGS](http://gokgs.com) for possible 
+This is a ruby script/program to analyze zip archives of Go games 
+(for example from [KGS archives](http://www.gokgs.com/archives.jsp)) for possible 
 [sandbagging](http://www.gokgs.com/help/faq/newbies.html#sandbagger) 
 behaviour of a player.
+
+This software or its original author have not been any way endorsed 
+or sponsored or authorized by KGS or any other go playing service.
+
+The author(s) of this software may or may not have or have had 
+an user account at any go playing service.
 
 **IMPORTANT!!**
 
@@ -13,10 +19,28 @@ meant to be used to give rough estimate whether or not it is
 worth it to look closer at a given player's games to decide 
 whether the player is intentionally losing games to inflate 
 his/her rank. Most importantly, it relies on a computer program 
-(currently using GnuGO) to judge the "real" result of a game, 
+(currently using GNUGo) to judge the "real" result of a game, 
 which sets a limit to its reliability.
 
 So, take its result with a grain of salt before accusing anyone.
+And look how the suspicious games actually look like.
+
+Also, miscalculations happen. People do sometimes see their 
+status incorrectly, especially on close games and resign.
+This tool is supposed to give some quick overview of 
+_tendencies_. Never judge anyone based on only one or even 
+few suspiciously "lost" games!
+
+And again: computer program is not a judge.
+
+## What it does:
+
+It reads a zip file for sgf files and prints the official result 
+and estimate result from GNUGo for each game, comparing especially 
+resigned games to the estimated result.
+
+It does NOT look into time losses in any except print them out, so
+it kind of "misses" those.
 
 ## License
 
@@ -27,15 +51,34 @@ as it currently stands is rather dependent on GNUGo.
 
 * [GNUGo](https://www.gnu.org/software/gnugo/) installed (tested with 3.8)
 * Ruby 1.9+ with following gems installed:
+  * [SgfParser](https://github.com/Trevoke/SGFParser)
   * [rubyzip](https://github.com/rubyzip/rubyzip)
+* Bundler to help with gem installation
 
-The program has been developed and tested on Ubuntu Linux 14.04.
+This program has been developed and tested on Ubuntu Linux 14.04. I don't
+expect it to be too hard to get to work on OS X. For Windows... I really
+don't know.
+
+## Install instructions
+
+Make sure GNUGo is installed and in your path. You can test if this 
+is so by opening a terminal and simply writing `gnugo --version`.
+
+Clone this repo and run `bundle install` within.
 
 ## Usage instructions
 
-Go to kgs archives page, search for player's games, download 
-a month of a player's game in zip format. Save or move after 
-save the zip into same directory than this program and run:
+Go to (for example) kgs archives page, search for player's games, 
+download a month of a player's game in zip format. Then run:
 
-`$ ./estimate.rb <user>-<year>-<month>.zip`
+`$ ./estimate.rb /path/to/file.zip`
 
+## Wishlist
+
+There are already many things I want to make better, when time permits:
+
+* Try to parallelize those score estimations
+* Nicer outputs... Maybe output a html page with nice styles?
+* Some player stats, especially "losses" : "conflicted resignations" ratio per player
+* Make some heuristics for suspicious clock loses as well
+* Generalize inputs, make it accept a directory having sgf files as input and traverse that recursively

@@ -39,8 +39,9 @@ It reads a zip file for sgf files and prints the official result
 and estimate result from GNUGo for each game, comparing especially 
 resigned games to the estimated result.
 
-It does NOT look into time losses in any except print them out, so
-it kind of "misses" those.
+It does NOT look into time losses in any way except print them
+out, so it kind of "misses" those if they indeed are intentional
+losses.
 
 ## License
 
@@ -89,6 +90,10 @@ There are already many things I want to make better, when time permits:
 * Try to parallelize those score estimations
 * Nicer outputs... Maybe output a html page with nice styles?
 * Some player stats, especially "losses" : "conflicted resignations" ratio per player
-* Make some heuristics for suspicious clock loses as well
+* Make some heuristics for suspicious time losses as well
 * Generalize inputs, make it accept a directory having sgf files as input and traverse that recursively
 * Make it accept command-line argument to set the estimator accuracy option or some sane config file
+* Maybe save the inputted games and estimations into a sqlite3 database? Use some hash algo to make sure every game is there only once.
+  * This way we can save lots of time on slow score estimations. Sqlite3 because it's by far the easiest to integrate into this kind of program.
+  * This will allow the software to start growing into general-purpose game archive, maybe a real ui with wxwidgets or something too?
+    * Hopefully ruby will get _supported_ WxWidgets bindings at some point...

@@ -17,7 +17,7 @@ The result given by this program is an **estimate** alert
 that is not supposed to be taken at face value; rather, it is 
 meant to be used to give rough estimate whether or not it is
 worth it to look closer at a given player's games to decide 
-whether the player is intentionally losing games to inflate 
+whether the player is intentionally losing games to deflate
 his/her rank. Most importantly, it relies on a computer program 
 (currently using GNUGo) to judge the "real" result of a game, 
 which sets a limit to its reliability.

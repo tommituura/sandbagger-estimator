@@ -96,4 +96,3 @@ There are already many things I want to make better, when time permits:
 * Maybe save the inputted games and estimations into a sqlite3 database? Use some hash algo to make sure every game is there only once.
   * This way we can save lots of time on slow score estimations. Sqlite3 because it's by far the easiest to integrate into this kind of program.
   * This will allow the software to start growing into general-purpose game archive, maybe a real ui with wxwidgets or something too?
-    * Hopefully ruby will get _supported_ WxWidgets bindings at some point...

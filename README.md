@@ -64,7 +64,10 @@ don't know.
 Make sure GNUGo is installed and in your path. You can test if this 
 is so by opening a terminal and simply writing `gnugo --version`.
 
-Clone this repo and run `bundle install` within.
+Clone this repo and run `bundle install` within. You may need to 
+run `gem install bundler` or even `sudo gem install bundler` 
+first. Or do something else to get those gems to install and 
+be available for this program.
 
 ## Usage instructions
 

@@ -73,6 +73,12 @@ download a month of a player's game in zip format. Then run:
 
 `$ ./estimate.rb /path/to/file.zip`
 
+The estimator uses GNUGo; the default choice for estimation is 
+the same as running `gnugo file.sgf --score estimate` on every resigned 
+game. To change the scoring option to "aftermath" or "finish" 
+(See [GNUGo documentation](http://www.gnu.org/software/gnugo/gnugo_3.html#SEC37) 
+for details) you need to edit Estimator.rb for now.
+
 ## Wishlist
 
 There are already many things I want to make better, when time permits:
@@ -82,3 +88,4 @@ There are already many things I want to make better, when time permits:
 * Some player stats, especially "losses" : "conflicted resignations" ratio per player
 * Make some heuristics for suspicious clock loses as well
 * Generalize inputs, make it accept a directory having sgf files as input and traverse that recursively
+* Make it accept command-line argument to set the estimator accuracy option or some sane config file

@@ -7,9 +7,9 @@ class Estimator
 
   def self.estimate_result( sgfdata = "" )
 
-    # either "estimate" or "aftermath"
+    # either "estimate" or "aftermath" or "finish"
 
-    # NOTE1: "aftermath" will be SLOW... gnugo will 
+    # NOTE1: "aftermath"/"finish" will be SLOW... gnugo will 
     # basically play against itself to the end of game!
 
     # NOTE2: "estimate" will yield values that differ from X.5
@@ -28,7 +28,7 @@ class Estimator
       :binmode=>true
     )
 
-    if accuracy == "aftermath"
+    if accuracy == "aftermath" || accuracy == "finish"
       s_arr = result.first.split("\n")[-3].split(" ")
     elsif accuracy == "estimate"
       s_arr = result.first.split(" ")
